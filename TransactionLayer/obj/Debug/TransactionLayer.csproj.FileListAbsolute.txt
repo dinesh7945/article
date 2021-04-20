@@ -1,0 +1,9 @@
+C:\Users\Sonali\source\repos\ArticleTest\TransactionLayer\bin\Debug\TransactionLayer.dll
+C:\Users\Sonali\source\repos\ArticleTest\TransactionLayer\bin\Debug\TransactionLayer.pdb
+C:\Users\Sonali\source\repos\ArticleTest\TransactionLayer\bin\Debug\BusinessLayer.dll
+C:\Users\Sonali\source\repos\ArticleTest\TransactionLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\Sonali\source\repos\ArticleTest\TransactionLayer\obj\Debug\TransactionLayer.csprojAssemblyReference.cache
+C:\Users\Sonali\source\repos\ArticleTest\TransactionLayer\obj\Debug\TransactionLayer.csproj.CoreCompileInputs.cache
+C:\Users\Sonali\source\repos\ArticleTest\TransactionLayer\obj\Debug\TransactionLayer.csproj.CopyComplete
+C:\Users\Sonali\source\repos\ArticleTest\TransactionLayer\obj\Debug\TransactionLayer.dll
+C:\Users\Sonali\source\repos\ArticleTest\TransactionLayer\obj\Debug\TransactionLayer.pdb

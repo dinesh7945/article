@@ -1,0 +1,6 @@
+C:\Users\Sonali\source\repos\ArticleTest\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\Users\Sonali\source\repos\ArticleTest\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\Sonali\source\repos\ArticleTest\BusinessLayer\obj\Debug\BusinessLayer.csprojAssemblyReference.cache
+C:\Users\Sonali\source\repos\ArticleTest\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Sonali\source\repos\ArticleTest\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\Users\Sonali\source\repos\ArticleTest\BusinessLayer\obj\Debug\BusinessLayer.pdb

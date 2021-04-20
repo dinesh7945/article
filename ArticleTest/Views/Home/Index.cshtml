@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@*<div class="jumbotron">
+        <h1>ASP.NET</h1>
+        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Getting started</h2>
+            <p>
+                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                enables a clean separation of concerns and gives you full control over markup
+                for enjoyable, agile development.
+            </p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>
+    </div>*@
+<style>
+    .welcomeform {
+        border: solid 1px;
+        width: fit-content;
+        padding: 10px 10px 10px 10px;
+        margin-left: 35%;
+    }
+
+    #headname1 {
+        text-align: center;
+        text-transform: uppercase;
+        align-content: center;
+        margin-top: 10px;
+    }
+
+    .formrowinput {
+        justify-content: center;
+    }
+    /*
+    body {
+        background-image: url('../../img/articleimage.jpg');
+        background: no-repeat;
+    }*/
+</style>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<section class="content" ng-app="myAppsign" ng-controller="myCtrlsign">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    @*<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>*@
+    @*<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>*@
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/CustomJS/SignupJS.js"></script>
+
+
+
+    <div class="container" id="headname1" style="border: 1px solid; padding: 10px 10px 10px 10px;background-color: lightblue;">
+        <form class="welcomeform" style="border:solid 1px;width:fit-content;padding:10px 10px 10px 10px;margin-left:35%;align-content:center;">
+            <h2 id="headname">Welcome</h2>
+            <div class="row formrowinput">
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        @*<label for="exampleInputEmail1">Email address</label>*@
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" ng-model="email">
+
+                    </div>
+                </div>
+            </div>
+            <div class="row formrowinput">
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        @*<label for="exampleInputPassword1">Password</label>*@
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="password">
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                @*<input type="checkbox" class="form-check-input" id="exampleCheck1">*@
+                <a href="@Url.Action("signup", "signup")" class="form-group" for="exampleCheck1">Don't have account click here </a>
+
+            </div>
+            <button type="submit" class="btn btn-primary" ng-click="loginSubmit();" id="buttonSubmitlogin" ng-model="buttonSubmitlogin" value="Submit">Log in</button>
+        </form>
+    </div>
+</section>
+
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+}

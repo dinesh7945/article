@@ -1,0 +1,183 @@
+﻿@model BusinessLayer.ArticleEntity
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ArticleView</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/CustomJS/ArticleJS.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    <script>
+
+        $(document).ready(function () {
+            // Initialize Editor
+            $('.textarea-editor').summernote({
+                height: 300, // set editor height
+                minHeight: null, // set minimum height of editor
+                maxHeight: null, // set maximum height of editor
+                focus: true // set focus to editable area after initializing summernote
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div>
+        <style>
+
+            #headname {
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            .card {
+                width: auto;
+                padding-left: 10%;
+                padding-right: 10%;
+            }
+        </style>
+
+
+
+        @using (Html.BeginForm("ArticleView", "Article", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <section class="content" ng-app="myApp" ng-controller="myCtrl">
+                @*<section>*@
+                <div class="container" ng-init="GetAllData()" style="justify-content:center">
+                    <h1 id="headname">Articles</h1>
+                    <div class="row">
+                        <div class="headings">
+
+                        </div>
+
+
+                    </div>
+                    <form>
+                        <div class="form-row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+
+                                    <label>Title</label>
+                                    <input class="form-control" placeholder="Enter Title For An Article" name="title_Name" id="title_Name" ng-model="title" />
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="form-group">
+
+                                    <label>Sub Title</label>
+                                    <input class="form-control" placeholder="Enter Sub Title For An Article" name="subTitle_Name" id="subTitle_Name" ng-model="sub_Title" />
+
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+
+                                    <label>Tags</label>
+                                    <input class="form-control" placeholder="Enter Tags For An Article" name="tags_Name" id="tags_Name" ng-model="tags" />
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="col-lg-4">
+                                <div class="form-group">
+
+                                    <label>Article Discription</label>
+                                    <textarea class="textarea-editor form-control" style="resize:none;width:400px;" placeholder="Enter Discription For An Article" name="article_Des" id="article_Des" ng-model="article_Desc"></textarea>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+
+                            <div class="col-lg-2">
+                                <div class="form-group">
+                                    <button class="btn btn-primary form-control" ng-click="Submit();" id="buttonSubmit" ng-model="buttonSubmit" value="Submit">Submit</button>
+                                    <button class="btn btn-warning form-control" style="margin-top:5px;" ng-click="Update();" id="buttonUpdate" ng-model="buttonUpdate" value="Update" ng-show="IsVisible">Update</button>
+
+
+                                    @*<button class="form-control" ng-click="update(art);" id="buttonSubmit" ng-model="buttonup" value="Submit"> update</button>*@
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <button class="btn btn-danger form-control" style="background-color: #f44336;" id="cancel" ng-model="cancel" value="cancel">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <input type="text" ng-model="id" id="id" style="display:none" />
+
+                @Html.Hidden("id")
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">LIST OF ARTICLES</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Sub Title</th>
+                                    <th>Tags</th>
+                                    <th>Article Discription</th>
+                                    <th>Action </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="art in Article_Details">
+                                    <td>
+                                        {{art.title}}
+                                    </td>
+                                    <td>
+                                        {{art.subTitle}}
+                                    </td>
+                                    <td>
+                                        {{art.tags}}
+                                    </td>
+                                    <td>
+                                        {{art.articleDesc}}
+                                    </td>
+                                    <td align="center">
+                                        <input type="button" class="btn btn-warning form-control" ng-click="Edit(art);" id="buttonEdit" ng-model="buttonEdit" value="Edit" />
+                                        <button class="btn btn-danger form-control" style="margin-top: 5px;background-color: #f44336;" ng-click="Delete(art);" id="buttonDelete" ng-model="buttonDelete">Delete</button>
+                                        @*<button class="btn btn-default" name="zmdi zmdi-edit" title="Edit" style="cursor:pointer" ng-click="UpdateEmp(art)"></button>&nbsp;&nbsp;<i class="fa fa-trash" title="Delete" style="cursor:pointer" ng-click="DeleteEmp(art)"></i>&nbsp;&nbsp;*@
+                                        @*<input type="button" class="btn btn-warning" value="Update" ng-click="UpdateEmp(Emp)" />
+                                        <input type="button" class="btn btn-danger" value="Delete" ng-click="DeleteEmp(Emp)" />*@
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </section>
+
+            
+            <script src="~/Scripts/jquery-3.4.1.js"></script>
+           
+            <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+        }
+    </div>
+</body>
+</html>
